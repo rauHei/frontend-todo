@@ -1,38 +1,137 @@
-.App {
+body {
+  font-family: 'Oswald', sans-serif;
+
+}
+
+#container {
+  width: 820px;
+  background-color:aliceblue;
+  border-radius: 3px;
+  padding: 0px 15px 0px 15px;
+  margin: 10px auto;
+  border: 1px solid #ddd;
+}
+
+h1 {
+  background-color: cadetblue;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  padding: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+label{
+  padding: 15px;
+  margin-top: 15px;
+}
+ul {
+  list-style-type: none;
+  margin: 20px 0 20px 0; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+li{
+width: 770px;
+margin-top: 30px;
+margin-bottom: 30px;
+padding: 5px;
+}
+
+textarea{
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 300px;
+  font-size: 15px;
+  margin-top: 3px;
+  align-content: center;
+  margin-left: 45px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+
+
+input[type=text] {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 320px;
+  font-size: 15px;
+  align-content: center;
+  justify-content: center;
+  margin-left: 43px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+
+
+input[type=email]{
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 320px;
+  font-size: 15px;
+  align-content: center;
+  justify-content: center;
+  margin-left: 45px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  
+}
+input[type=password]{
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 320px;
+  font-size: 15px;
+  align-content: center;
+  justify-content: center;
+  margin-left: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+
+}
+input[type=submit]{
+  margin-left: 485px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+
+h2{
+  background-color: cadetblue;
+  text-align: center;
+  color: white;
+  padding: 5px;
+}
+
+button {
+  border: 1px solid #ccc;
+  margin-left: 15px;
+  margin-right: 15px;
+  padding: 5px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+}
+.filter-todo{
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  font-size: 15px;
+  float: right;
+  cursor: pointer;
+  
+}
+.todo-list{
+ 
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+   text-align: center;
+}
+.delete {
+  cursor: pointer;
+  color: red;
+  font-weight: bold;
+  
+}
+.update{
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.done{
+  font-weight: bold;
+  align-content: center;
+  justify-content: center;
+}
+
+.todosList{
+  background-color: cadetblue;
 }
