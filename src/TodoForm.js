@@ -27,7 +27,7 @@ function TodoForm({ todos, setTodos, setNewContent, newContent, setInputText, in
             begin: time,
             end: "",
             completed: false,
-            id: Math.random() * 1000
+            id: Math.floor(Math.random() * 10000)
         }
 
         TodoService
