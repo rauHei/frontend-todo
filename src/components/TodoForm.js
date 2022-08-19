@@ -2,6 +2,7 @@ import './Todoform.css';
 import TodoService from '../services/todos'
 import { useEffect, useState } from 'react';
 import TodoList from './TodoList';
+import moment from 'moment';
 
 
 
@@ -19,17 +20,17 @@ function TodoForm() {
 
     useEffect(() => {
 
-        setInitState('Ladataan tehtävälista palvelimelta, odota...')
+        setInitState('Klikkaa valikkoa niin näät muistiinpanosi..')
 
         TodoService
             .getAllTodos()
             .then(response => {
                 setTodos(response.data)
             })
-
         filterHandlerer()
     }, [status, setTodos, setFiltered])
 
+    //filters shown notes
     const filterHandlerer = (() => {
 
         switch (status) {
@@ -40,6 +41,9 @@ function TodoForm() {
             case "Uncompleted":
                 const d = todos.filter(b => b.completed === false)
                 setFiltered(d)
+                break;
+            case "Empty":
+                window.location.reload()
                 break;
             default:
                 setFiltered(todos)
@@ -53,12 +57,11 @@ function TodoForm() {
     const textAreaHandlerer = (e) => {
         setNewContent(e.target.value);
     }
-
-    let today = new Date()
-    const time = today.getDate() + "." + today.getMonth() + "." + today.getFullYear() + " " + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+    const time = moment().format('DD.MM.YYYY  hh:mm:ss')
 
     const submitTodohandler = (e) => {
         e.preventDefault();
+
 
         const newTodo = {
             name: inputText,
@@ -82,17 +85,19 @@ function TodoForm() {
     }
     const statusHandler = (e) => {
         setStatus(e.target.value);
+
     }
 
     return (
         <div className='todo-form'>
-            <h1>ToDo List</h1>
+            <h1>To do list</h1>
             <form id="formialue">
                 <label id="label" htmlFor="name">Task name:</label>
                 <br></br>
                 <input type="text" id="name" value={inputText} onChange={inputTextHandlerer} />
                 <br></br>
-                <label id="label" htmlFor="name">Task description:</label>
+
+                <label id="label" htmlFor="name">Description:</label>
                 <br></br>
                 <div id="kuvaus">
                     <textarea type="text" id="content" value={newContent} onChange={textAreaHandlerer} />
@@ -102,6 +107,7 @@ function TodoForm() {
                 <button className='button3' type="Submit" onClick={submitTodohandler}>Lisää</button>
                 <div>
                     <select onChange={statusHandler} name="todos" className='filter-todo'>
+                        <option value="Empty">Choose</option>
                         <option value="All">All</option>
                         <option value="Completed">Completed</option>
                         <option value="Uncompleted">Uncompleted</option>

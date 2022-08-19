@@ -3,7 +3,7 @@ import TodoService from '../services/todos'
 import { useNavigate } from 'react-router-dom'
 
 
-//KESKEN!!!
+//update form!!
 
 function UpdatetodoForm({ todos, begin }) {
 
@@ -24,12 +24,10 @@ function UpdatetodoForm({ todos, begin }) {
 
     const inputTextHandlerer = (e) => {
         setName(e.target.value);
-        console.log('INPUTTEXT', name);
     }
-
     const textAreaHandlerer = (e) => {
         setContent(e.target.value);
-        console.log('AREATEXT', content);
+
     }
 
     const handleSubmit = () => {

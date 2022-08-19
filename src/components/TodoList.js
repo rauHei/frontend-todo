@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TodoService from '../services/todos';
 import './Todolist.css'
 import { useNavigate } from 'react-router-dom'
+import moment from 'moment';
+
 
 
 
 function TodoList({ todos, setTodos, filtered }) {
 
 
-    //DELETE TOIMII
+    //DELETE 
     const deleteHandler = (e) => {
         e.preventDefault()
         let one = todos.filter((one) => one.id === e.target.value)
@@ -25,14 +27,14 @@ function TodoList({ todos, setTodos, filtered }) {
 
     let history = useNavigate();
 
-    //muuttaa jo tietokantaan
+    //Updates if task is finished
     const completeHandler = (e) => {
         e.preventDefault()
 
         let upone = todos.filter((a) => a.id === e.target.value)
         let updateone = upone.map(u => u.id)
-        let today = new Date()
-        const time = today.getDate() + "." + today.getMonth() + "." + today.getFullYear() + " " + today.getHours() + ':' + today.getMinutes();
+
+        const time = moment().format('DD.MM.YYYY  hh:mm:ss')
 
         const updTodo = {
             completed: !false,
@@ -55,7 +57,7 @@ function TodoList({ todos, setTodos, filtered }) {
         window.location.reload()
     }
 
-    //ei toimi vielä
+    //updates task itself
     const updateHandler = (e) => {
         e.preventDefault()
         window.localStorage.setItem("Id", e.target.value)
@@ -63,11 +65,11 @@ function TodoList({ todos, setTodos, filtered }) {
 
     }
 
+    console.log('Filtered', filtered);
 
     return (
-
         <ul className="todo-list2">
-            {filtered.map(todo => (
+            {filtered.map((todo) => (
 
                 <li key={todo.id} className={`todo-list${todo.completed ? "Completed" : ''}`}>
                     <h3>{todo.name}</h3> <br></br>
@@ -78,11 +80,11 @@ function TodoList({ todos, setTodos, filtered }) {
                     <button onClick={completeHandler} value={todo.id} className={todo.completed === true ? 'done' : 'undone'}>READY</button>
                     <button onClick={updateHandler} value={todo.id} className="update">UPDATE</button>
                 </li>
-
-
             )
 
             )}
+
+
         </ul>
 
 
