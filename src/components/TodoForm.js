@@ -57,7 +57,9 @@ function TodoForm() {
     const textAreaHandlerer = (e) => {
         setNewContent(e.target.value);
     }
-    const time = moment().format('DD.MM.YYYY  HH:mm:ss')
+    const day = moment().format('DD.MM.YY')
+    const klo = moment().format('HH:mm:ss')
+    const time = day + "  klo: " + klo
 
     const submitTodohandler = (e) => {
         e.preventDefault();

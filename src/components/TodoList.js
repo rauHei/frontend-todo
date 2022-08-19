@@ -34,7 +34,9 @@ function TodoList({ todos, setTodos, filtered }) {
         let upone = todos.filter((a) => a.id === e.target.value)
         let updateone = upone.map(u => u.id)
 
-        const time = moment().format('DD.MM.YYYY  HH:mm:ss')
+        const day = moment().format('DD.MM.YY')
+        const klo = moment().format('HH:mm:ss')
+        const time = day + " klo: " + klo
 
         const updTodo = {
             completed: !false,
