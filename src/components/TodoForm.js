@@ -27,7 +27,7 @@ function TodoForm() {
             .then(response => {
                 setTodos(response.data)
             })
-        // filterHandlerer()
+        filterHandlerer()
     }, [status, setTodos, setFiltered])
 
     //filters shown notes
