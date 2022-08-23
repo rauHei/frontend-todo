@@ -1,9 +1,9 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/api/todos'
+const baseUrl = '/api/todos'
 
 const getAllTodos = async () => {
     const data = await axios.get(baseUrl)
-    return data
+    return data.data
 }
 
 const createTodo = async newObject => {
