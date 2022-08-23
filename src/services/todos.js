@@ -3,7 +3,7 @@ const baseUrl = '/api/todos'
 
 const getAllTodos = async () => {
     const data = await axios.get(baseUrl)
-    return data.data
+    return data
 }
 
 const createTodo = async newObject => {

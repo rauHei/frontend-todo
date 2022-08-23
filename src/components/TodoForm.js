@@ -15,7 +15,7 @@ function TodoForm() {
     const [inputText, setInputText] = useState('');
     const [newContent, setNewContent] = useState('');
     const [status, setStatus] = useState(todos);
-    const [filtered, setFiltered] = useState(null);
+    const [filtered, setFiltered] = useState([]);
 
 
     useEffect(() => {
@@ -24,11 +24,15 @@ function TodoForm() {
 
         TodoService
             .getAllTodos()
-            .then(response => {
+            .then((response) => {
                 setTodos(response.data)
             })
         filterHandlerer()
+
     }, [status, setTodos, setFiltered])
+
+    console.log('filtered', filtered);
+    console.log('TODOS', todos);
 
     //filters shown notes
     const filterHandlerer = (() => {
@@ -118,7 +122,7 @@ function TodoForm() {
             </form>
 
             <div>
-                {filtered === null
+                {filtered.length === 0
                     ? <div id="alkuteksti">
                         {initText}
                     </div>
